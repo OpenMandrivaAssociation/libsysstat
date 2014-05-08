@@ -28,6 +28,7 @@ URL: http://lxqt.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake
+BuildRequires: qt4-devel
 
 %description
 System status library for LXQt
