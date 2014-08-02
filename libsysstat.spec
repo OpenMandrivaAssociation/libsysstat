@@ -1,14 +1,16 @@
 %define major 0
 %define beta %{nil}
-%define scmrev 20140508
-%define libname %mklibname sysstat %{major}
-%define devname %mklibname sysstat -d
+%define scmrev 20140802
+%define libname %mklibname sysstat-qt5 %{major}
+%define devname %mklibname sysstat-qt5 -d
+%define qt4libname %mklibname sysstat %{major}
+%define qt4devname %mklibname sysstat -d
 
 Name: libsysstat
 Version: 0.1.1
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 3
+Release: 1
 Source0: %{name}-%{version}.tar.bz2
 %else
 Release: 0.%{scmrev}.1
@@ -28,7 +30,7 @@ URL: http://lxqt.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake
-BuildRequires: qt4-devel
+BuildRequires: qt5-devel
 
 %description
 System status library for LXQt
@@ -36,6 +38,7 @@ System status library for LXQt
 %package -n %{libname}
 Summary: System status library for LXQt
 Group: System/Libraries
+%rename %{qt4libname}
 
 %description -n %{libname}
 System status library for LXQt
@@ -44,6 +47,7 @@ System status library for LXQt
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{libname} = %{EVRD}
+%rename %{qt4devname}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
@@ -54,7 +58,7 @@ Development files (Headers etc.) for %{name}.
 %else
 %setup -q -n %{name}-%{scmrev}
 %endif
-%cmake
+%cmake -DUSE_QT5:BOOL=ON
 
 %build
 %make -C build
@@ -70,4 +74,4 @@ Development files (Headers etc.) for %{name}.
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
-%{_datadir}/cmake/sysstat
+%{_datadir}/cmake/sysstat-qt5
