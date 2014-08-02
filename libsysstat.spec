@@ -31,6 +31,8 @@ License: GPL
 Group: System/Libraries
 BuildRequires: cmake
 BuildRequires: qt5-devel
+BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(Qt5X11Extras)
 
 %description
 System status library for LXQt
