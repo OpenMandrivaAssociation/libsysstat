@@ -1,17 +1,17 @@
 %define major 0
 %define beta %{nil}
-%define scmrev 20140802
+%define scmrev %{nil}
 %define libname %mklibname sysstat-qt5 %{major}
 %define devname %mklibname sysstat-qt5 -d
 %define qt4libname %mklibname sysstat %{major}
 %define qt4devname %mklibname sysstat -d
 
 Name: libsysstat
-Version: 0.1.1
+Version: 0.2.0
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release: 1
-Source0: %{name}-%{version}.tar.bz2
+Source0: http://lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %else
 Release: 0.%{scmrev}.1
 Source0: %{name}-%{scmrev}.tar.xz
@@ -56,7 +56,7 @@ Development files (Headers etc.) for %{name}.
 
 %prep
 %if "%{scmrev}" == ""
-%setup -q -n %{name}-%{version}%{beta}
+%setup -q -n %{name}
 %else
 %setup -q -n %{name}-%{scmrev}
 %endif
