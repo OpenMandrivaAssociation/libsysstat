@@ -56,7 +56,7 @@ Development files (Headers etc.) for %{name}.
 
 %prep
 %if "%{scmrev}" == ""
-%setup -q -n %{name}
+%setup -q
 %else
 %setup -q -n %{name}-%{scmrev}
 %endif
