@@ -7,10 +7,10 @@
 %define qt4devname %mklibname sysstat -d
 
 Name: libsysstat
-Version: 0.2.0
+Version: 0.3.0
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 2
+Release: 1
 Source0: http://lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %else
 Release: 0.%{scmrev}.1
@@ -70,7 +70,7 @@ Development files (Headers etc.) for %{name}.
 
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+#%{_libdir}/*.so.%{major}*
 
 %files -n %{devname}
 %{_includedir}/*
