@@ -70,7 +70,7 @@ Development files (Headers etc.) for %{name}.
 
 
 %files -n %{libname}
-#%{_libdir}/*.so.%{major}*
+%{_libdir}/*sysstat-qt5.so.%{major}*
 
 %files -n %{devname}
 %{_includedir}/*
