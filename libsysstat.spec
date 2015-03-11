@@ -10,7 +10,7 @@ Name: libsysstat
 Version: 0.3.0
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 1
+Release: 2
 Source0: http://lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %else
 Release: 0.%{scmrev}.1
@@ -30,9 +30,9 @@ URL: http://lxqt.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake
-BuildRequires: qt5-devel
+BuildRequires: qmake5
+BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5LinguistTools)
-BuildRequires: cmake(Qt5X11Extras)
 
 %description
 System status library for LXQt
@@ -60,7 +60,7 @@ Development files (Headers etc.) for %{name}.
 %else
 %setup -q -n %{name}-%{scmrev}
 %endif
-%cmake -DUSE_QT5:BOOL=ON
+%cmake_qt5
 
 %build
 %make -C build
