@@ -10,7 +10,7 @@ Name: libsysstat
 Version: 0.3.0
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 2
+Release: 3
 Source0: http://lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %else
 Release: 0.%{scmrev}.1
