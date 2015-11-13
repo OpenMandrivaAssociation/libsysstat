@@ -7,11 +7,11 @@
 %define qt4devname %mklibname sysstat -d
 
 Name: libsysstat
-Version: 0.3.0
+Version: 0.3.1
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 3
-Source0: http://lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
+Release: 1
+Source0: https://github.com/lxde/%{name}/archive/%{version}.tar.gz
 %else
 Release: 0.%{scmrev}.1
 Source0: %{name}-%{scmrev}.tar.xz
@@ -67,7 +67,7 @@ Development files (Headers etc.) for %{name}.
 
 %install
 %makeinstall_std -C build
-
+sed -i -e 's,^libdir=.*,libdir=%{_libdir},g' %{buildroot}%{_libdir}/pkgconfig/*.pc
 
 %files -n %{libname}
 %{_libdir}/*sysstat-qt5.so.%{major}*
