@@ -11,7 +11,7 @@ Version: 0.3.1
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release: 1
-Source0: https://github.com/lxde/%{name}/archive/%{version}.tar.gz
+Source0: https://github.com/lxde/%{name}/archive/%{name}-%{version}.tar.xz
 %else
 Release: 0.%{scmrev}.1
 Source0: %{name}-%{scmrev}.tar.xz
