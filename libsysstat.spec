@@ -33,9 +33,10 @@ BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(lxqt-build-tools)
 
 %description
-System status library for LXQt
+System status library for LXQt.
 
 %package -n %{libname}
 Summary: System status library for LXQt
@@ -43,7 +44,7 @@ Group: System/Libraries
 %rename %{qt4libname}
 
 %description -n %{libname}
-System status library for LXQt
+System status library for LXQt.
 
 %package -n %{devname}
 Summary: Development files for %{name}
