@@ -10,7 +10,7 @@ Name: libsysstat
 Version: 0.4.2
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 1
+Release: 2
 Source0: https://github.com/lxde/%{name}/archive/%{version}.tar.gz
 %else
 Release: 0.%{scmrev}.1
@@ -61,13 +61,15 @@ Development files (Headers etc.) for %{name}.
 %else
 %setup -q -n %{name}-%{scmrev}
 %endif
+
+%autopatch -p1
 %cmake_qt5
 
 %build
-%make -C build
+%make_build -C build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 sed -i -e 's,^libdir=.*,libdir=%{_libdir},g' %{buildroot}%{_libdir}/pkgconfig/*.pc
 
 %files -n %{libname}
