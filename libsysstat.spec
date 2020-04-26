@@ -7,10 +7,10 @@
 %define qt4devname %mklibname sysstat -d
 
 Name: libsysstat
-Version: 0.4.2
+Version: 0.4.3
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 2
+Release: 1
 Source0: https://github.com/lxde/%{name}/archive/%{version}.tar.gz
 %else
 Release: 0.%{scmrev}.1
