@@ -10,8 +10,8 @@ Name: libsysstat
 Version: 0.4.3
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 1
-Source0: https://github.com/lxde/%{name}/archive/%{version}.tar.gz
+Release: 2
+Source0: https://github.com/lxqt/libsysstat/releases/download/%{version}/libsysstat-%{version}.tar.xz
 %else
 Release: 0.%{scmrev}.1
 Source0: %{name}-%{scmrev}.tar.xz
