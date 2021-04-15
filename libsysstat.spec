@@ -7,7 +7,7 @@
 %define qt4devname %mklibname sysstat -d
 
 Name: libsysstat
-Version: 0.4.4
+Version: 0.4.5
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release: 1
