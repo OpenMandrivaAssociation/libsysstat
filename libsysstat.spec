@@ -1,30 +1,14 @@
 %define major 0
-%define beta %{nil}
-%define scmrev %{nil}
-%define libname %mklibname sysstat-qt5 %{major}
+%define libname %mklibname sysstat-qt5
+%define oldlibname %mklibname sysstat-qt5 0
 %define devname %mklibname sysstat-qt5 -d
 %define qt4libname %mklibname sysstat %{major}
 %define qt4devname %mklibname sysstat -d
 
 Name: libsysstat
 Version: 0.4.6
-%if "%{beta}" == ""
-%if "%{scmrev}" == ""
 Release: 1
 Source0: https://github.com/lxqt/libsysstat/releases/download/%{version}/libsysstat-%{version}.tar.xz
-%else
-Release: 0.%{scmrev}.1
-Source0: %{name}-%{scmrev}.tar.xz
-%endif
-%else
-%if "%{scmrev}" == ""
-Release: 0.%{beta}.1
-Source0: %{name}-%{version}%{beta}.tar.bz2
-%else
-Release: 0.%{beta}.1%{scmrev}.1
-Source0: %{name}-%{scmrev}.tar.xz
-%endif
-%endif
 Summary: System status library for LXQt
 URL: http://lxqt.org/
 License: GPL
@@ -42,6 +26,7 @@ System status library for LXQt.
 Summary: System status library for LXQt
 Group: System/Libraries
 %rename %{qt4libname}
+%rename %{oldlibname}
 
 %description -n %{libname}
 System status library for LXQt.
@@ -56,13 +41,7 @@ Requires: %{libname} = %{EVRD}
 Development files (Headers etc.) for %{name}.
 
 %prep
-%if "%{scmrev}" == ""
-%setup -q
-%else
-%setup -q -n %{name}-%{scmrev}
-%endif
-
-%autopatch -p1
+%autosetup -p1
 %cmake_qt5
 
 %build
