@@ -7,7 +7,7 @@
 
 Name: libsysstat
 Version: 0.4.6
-Release: 3
+Release: 4
 Source0: https://github.com/lxqt/libsysstat/releases/download/%{version}/libsysstat-%{version}.tar.xz
 Summary: System status library for LXQt
 URL: http://lxqt.org/
