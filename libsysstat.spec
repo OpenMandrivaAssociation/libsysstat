@@ -1,23 +1,19 @@
-%define major 0
-%define libname %mklibname sysstat-qt5
-%define oldlibname %mklibname sysstat-qt5 0
-%define devname %mklibname sysstat-qt5 -d
-%define qt4libname %mklibname sysstat %{major}
-%define qt4devname %mklibname sysstat -d
+%define major 1
+%define libname %mklibname sysstat-qt6
+%define devname %mklibname sysstat-qt6 -d
 
 Name: libsysstat
-Version: 0.4.6
-Release: 4
+Version: 1.0.0
+Release: 1
 Source0: https://github.com/lxqt/libsysstat/releases/download/%{version}/libsysstat-%{version}.tar.xz
 Summary: System status library for LXQt
 URL: http://lxqt.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake
-BuildRequires: qmake5
-BuildRequires: cmake(Qt5Core)
-BuildRequires: cmake(Qt5LinguistTools)
-BuildRequires: cmake(lxqt-build-tools)
+BuildRequires: cmake(Qt6Core)
+BuildRequires: cmake(Qt6LinguistTools)
+BuildRequires: cmake(lxqt2-build-tools)
 
 %description
 System status library for LXQt.
@@ -25,8 +21,6 @@ System status library for LXQt.
 %package -n %{libname}
 Summary: System status library for LXQt
 Group: System/Libraries
-%rename %{qt4libname}
-%rename %{oldlibname}
 
 %description -n %{libname}
 System status library for LXQt.
@@ -35,27 +29,27 @@ System status library for LXQt.
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{libname} = %{EVRD}
-%rename %{qt4devname}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
 
 %prep
 %autosetup -p1
-%cmake_qt5
+%cmake \
+	-G Ninja
 
 %build
-%make_build -C build
+%ninja_build -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 sed -i -e 's,^libdir=.*,libdir=%{_libdir},g' %{buildroot}%{_libdir}/pkgconfig/*.pc
 
 %files -n %{libname}
-%{_libdir}/*sysstat-qt5.so.%{major}*
+%{_libdir}/*sysstat-qt6.so.%{major}*
 
 %files -n %{devname}
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
-%{_datadir}/cmake/sysstat-qt5
+%{_datadir}/cmake/sysstat-qt6
