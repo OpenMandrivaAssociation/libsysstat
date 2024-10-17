@@ -7,7 +7,7 @@ Version: 1.0.0
 Release: 2
 Source0: https://github.com/lxqt/libsysstat/releases/download/%{version}/libsysstat-%{version}.tar.xz
 Summary: System status library for LXQt
-URL: http://lxqt.org/
+URL: https://lxqt.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake
