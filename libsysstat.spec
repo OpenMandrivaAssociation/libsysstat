@@ -3,8 +3,8 @@
 %define devname %mklibname sysstat-qt6 -d
 
 Name: libsysstat
-Version: 1.0.0
-Release: 2
+Version: 1.1.0
+Release: 1
 Source0: https://github.com/lxqt/libsysstat/releases/download/%{version}/libsysstat-%{version}.tar.xz
 Summary: System status library for LXQt
 URL: https://lxqt.org/
