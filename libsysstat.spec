@@ -4,7 +4,7 @@
 
 Name: libsysstat
 Version: 1.1.0
-Release: 4
+Release: 5
 Source0: https://github.com/lxqt/libsysstat/releases/download/%{version}/libsysstat-%{version}.tar.xz
 Summary: System status library for LXQt
 URL: https://lxqt.org/
@@ -39,7 +39,7 @@ Development files (Headers etc.) for %{name}.
 %build
 %cmake \
 	-G Ninja
-%ninja_build -C build
+%ninja_build
 
 %install
 %ninja_install -C build
